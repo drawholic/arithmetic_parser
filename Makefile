@@ -13,7 +13,9 @@ SRCS = ${SRC_DIR}/main.cpp \
 		${SRC_DIR}/Terminal.cpp
 
 OBJS = ${BUILD_DIR}/AbstractExpression.o \
-		${BUILD_DIR}/Terminal.o
+		${BUILD_DIR}/Terminal.o \
+		${BUILD_DIR}/NonTerminal.o \
+
 
 all: ${BUILD_DIR}/main.o
 
