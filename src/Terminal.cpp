@@ -9,3 +9,8 @@ int Terminal::interpret() const
 {
 	return value;
 };
+
+Terminal::~Terminal()
+{
+
+};
