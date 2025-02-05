@@ -2,7 +2,7 @@
 #define NON_TERMINAL_HPP
 
 #include "AbstractExpression.hpp"
-
+#include <cmath>
 
 enum Operator
 {
@@ -40,5 +40,14 @@ public:
 	 * @return Result of evaluation of an expression 
 	 */
 	int interpret() override;
+
+	/***
+	 * Calculate value of expression choosing the right operator based on op field.
+	 * @param left value returned by left child interpret method.
+	 * @param right value returned by right child interpret method.
+	 * 
+	 * @return result of evaluation
+	 */
+	int evaluate(int, int);
 }
 #endif
