@@ -39,7 +39,7 @@ public:
 	 * 
 	 * @return Result of evaluation of an expression 
 	 */
-	int interpret() override;
+	int interpret() const override;
 
 	/***
 	 * Calculate value of expression choosing the right operator based on op field.
@@ -48,6 +48,6 @@ public:
 	 * 
 	 * @return result of evaluation
 	 */
-	int evaluate(int, int);
-}
+	int evaluate(int, int) const;
+};
 #endif
