@@ -2,6 +2,7 @@
 #define SCANNER_HPP
 
 #include "AbstractExpression.hpp"
+#include <algorithm>
 #include <vector>
 #include <string>
 
