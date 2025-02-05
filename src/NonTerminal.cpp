@@ -3,7 +3,7 @@
 
 NonTerminal::NonTerminal(AbstractExpression* left = NULL, AbstractExpression* right = NULL, Operator op = ADD){};
 
-int NonTerminal::evaluate(int left_res, int right_res)
+int NonTerminal::evaluate(int left_res, int right_res) const
 {
 	switch(op)
 	{
@@ -22,11 +22,11 @@ int NonTerminal::evaluate(int left_res, int right_res)
 	}
 };
 
-int NonTerminal::interpret()
+int NonTerminal::interpret() const
 {
 	int res;
-	int left_res = left == NULL ? 0 : left->interret();
-	int right_res = right == NULL ? 0 : right->interret();
+	int left_res = left == NULL ? 0 : left->interpret();
+	int right_res = right == NULL ? 0 : right->interpret();
 	res = evaluate(left_res, right_res);
 	return res;
 };
