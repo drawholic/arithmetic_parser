@@ -4,7 +4,7 @@
 class AbstractExpression
 {
 public:
-	virtual int interpret() = 0;
+	virtual int interpret() const;
 	virtual ~AbstractExpression(){};
 };
 
