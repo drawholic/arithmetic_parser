@@ -23,6 +23,9 @@ ${BUILD_DIR}:
 ${BUILD_DIR}/main.o: ${SRC_DIR}/main.cpp ${OBJS}
 	${CXX} $^ -I include/ -o $@ 
 
+${BUILD_DIR}/NonTerminal.o: ${BUILD_DIR}/AbstractExpression.o ${SRC_DIR}/NonTerminal.cpp
+	${CXX} ${CXX_FLAGS} $^ -o $@
+
 ${BUILD_DIR}/Terminal.o: ${BUILD_DIR}/AbstractExpression.o ${SRC_DIR}/Terminal.cpp
 	${CXX} ${CXX_FLAGS} $^ -o $@
 
