@@ -50,3 +50,30 @@ int NonTerminal::interpret() const
 	res = evaluate(left_res, right_res);
 	return res;
 };
+
+void NonTerminal::print()
+{
+	std::cout << "NonTerminal: ";
+	switch(op)
+	{
+	case ADD:
+		std::cout << "+";
+		break;
+	case SUB: 
+		std::cout << "-";
+		break;
+	case DIV:
+		std::cout << "/";
+		break;
+	case MUL:
+		std::cout << "*";
+		break;
+	case POW:
+		std::cout << "^";
+		break;
+	case NEG:
+		std::cout << "-";
+		break;
+	};
+	std::cout << std::endl;
+};
