@@ -8,4 +8,5 @@ public:
 	Terminal(int);
 	~Terminal();
 	int interpret() const override ;
+	void print() override;
 };
