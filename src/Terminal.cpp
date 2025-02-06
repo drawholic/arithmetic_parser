@@ -14,3 +14,9 @@ Terminal::~Terminal()
 {
 
 };
+
+void Terminal::print()
+{
+	std::cout << "Terminal: " << value << std::endl; 
+
+};

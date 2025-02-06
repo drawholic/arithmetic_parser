@@ -33,7 +33,7 @@ ${BUILD_DIR}/NonTerminal.o: ${BUILD_DIR}/AbstractExpression.o ${SRC_DIR}/NonTerm
 ${BUILD_DIR}/Terminal.o: ${BUILD_DIR}/AbstractExpression.o ${SRC_DIR}/Terminal.cpp
 	${CXX} ${CXX_FLAGS} $^ -o $@
 
-${BUILD_DIR}/Scanner.o: ${BUILD_DIR}/AbstractExpression.o ${SRC_DIR}/Scanner.cpp
+${BUILD_DIR}/Scanner.o: ${BUILD_DIR}/AbstractExpression.o ${BUILD_DIR}/Terminal.o ${BUILD_DIR}/NonTerminal.o ${SRC_DIR}/Scanner.cpp
 	${CXX} ${CXX_FLAGS} $^ -o $@
 
 ${BUILD_DIR}/AbstractExpression.o: ${SRC_DIR}/AbstractExpression.cpp

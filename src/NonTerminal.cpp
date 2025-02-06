@@ -3,6 +3,31 @@
 
 NonTerminal::NonTerminal(AbstractExpression* left = NULL, AbstractExpression* right = NULL, Operator op = ADD){};
 
+NonTerminal::NonTerminal(std::string& _op)
+{
+	switch(_op[0])
+	{
+	case '+':
+		op = ADD;
+		break;
+	case '-':
+		op = SUB;
+		break;
+	case '*':
+		op = MUL;
+		break;
+	case '/':
+		op = DIV;
+		break;
+	case '^':
+		op = POW;
+		break;
+	};
+	right = NULL;
+	left = NULL;
+
+};
+
 int NonTerminal::evaluate(int left_res, int right_res) const
 {
 	switch(op)
@@ -20,6 +45,7 @@ int NonTerminal::evaluate(int left_res, int right_res) const
 	case NEG:
 		return (- right_res);
 	}
+	return 0;
 };
 
 int NonTerminal::interpret() const
@@ -29,4 +55,24 @@ int NonTerminal::interpret() const
 	int right_res = right == NULL ? 0 : right->interpret();
 	res = evaluate(left_res, right_res);
 	return res;
+};
+
+void NonTerminal::print()
+{
+	std::cout << "NonTerminal: ";
+	switch(op)
+	{
+		case ADD: std::cout << "+"; break;
+		case SUB: std::cout << "-"; break;
+		case DIV: std::cout << "/"; break;
+		case MUL: std::cout << "*"; break;
+		case POW: std::cout << "^"; break;
+		case NEG: std::cout << "-"; break;
+	};
+	std::cout << std::endl;
+};
+
+NonTerminal::~NonTerminal()
+{
+
 };

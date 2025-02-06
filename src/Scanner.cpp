@@ -1,9 +1,31 @@
 #include "Scanner.hpp"
+#include <cstdio>
 
+Scanner::Scanner(std::string buf): buffer(buf) {
 
+	remove_whitespaces();
 
-Scanner::Scanner(std::string& buf): buffer(buf) {};
+	split_tokens();
 
+	convert_to_tokens();
+
+	print_tokens();
+};
+
+void Scanner::print_tokens()
+{
+	for(auto i : tokens)
+		i->print();
+};
+
+void Scanner::print_str_tokens()
+{
+	for(auto i : str_tokens)
+	{
+		std::cout << i << ", ";
+	};
+	std::cout << std::endl;
+};
 
 void Scanner::remove_whitespaces()
 {
@@ -14,13 +36,14 @@ void Scanner::remove_whitespaces()
 
 str_iter Scanner::get_number_end(str_iter start, str_iter buf_end)
 {
-	char c = *start;
-	while(std::isdigit(c) == 0 && start != buf_end)
+	str_iter it = start;
+	char c = *it;
+	while(std::isdigit(c) == 0 && it != buf_end)
 	{
-		start = std::next(start, 1);
-		c = *start;
+		it = std::next(it, 1);
+		c = *it;
 	};
-	return start;
+	return std::next(it, 1);
 };
 
 void Scanner::split_tokens()
@@ -46,5 +69,21 @@ void Scanner::split_tokens()
 			str_tokens.push_back(temp);
 			it++;
 		};
+	};
+};
+
+void Scanner::convert_to_tokens()
+{
+	int temp_num;
+	for(auto i : str_tokens)
+	{
+		if(std::isdigit(i[0]))
+		{
+			temp_num = std::stoi(i);
+			tokens.push_back(new Terminal(temp_num));
+		}else
+		{
+			tokens.push_back(new NonTerminal(i));
+		}
 	};
 };
