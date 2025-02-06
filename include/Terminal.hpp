@@ -1,5 +1,5 @@
 #include "AbstractExpression.hpp"
-
+#include <iostream>
 
 class Terminal: public AbstractExpression
 {
