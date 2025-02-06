@@ -1,6 +1,14 @@
 #include "Scanner.hpp"
 
-Scanner::Scanner(std::string& buf): buffer(buf) {};
+Scanner::Scanner(std::string& buf): buffer(buf) {
+	
+	remove_whitespaces();
+
+	split_tokens();
+
+	convert_to_tokens();
+
+};
 
 
 void Scanner::remove_whitespaces()
