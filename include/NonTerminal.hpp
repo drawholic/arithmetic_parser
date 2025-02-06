@@ -58,5 +58,7 @@ public:
 
 	void print() override;
 
+	~NonTerminal();
+
 };
 #endif
