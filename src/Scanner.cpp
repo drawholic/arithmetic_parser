@@ -8,8 +8,15 @@ Scanner::Scanner(std::string& buf): buffer(buf) {
 
 	convert_to_tokens();
 
+	print_tokens();
+
 };
 
+void Scanner::print_tokens()
+{
+	for(auto i : tokens)
+		i->print();
+};
 
 void Scanner::remove_whitespaces()
 {
