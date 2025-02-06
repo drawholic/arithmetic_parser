@@ -19,6 +19,7 @@ class Scanner
 	v_tokens tokens;
 	str_iter get_number_end(str_iter, str_iter);
 	void convert_to_tokens();
+	void print_tokens();
 
 public:
 	Scanner(std::string& buf);
