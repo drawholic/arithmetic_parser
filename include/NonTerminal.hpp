@@ -4,6 +4,7 @@
 #include "AbstractExpression.hpp"
 #include <cmath>
 #include <string>
+#include <iostream>
 
 enum Operator
 {
