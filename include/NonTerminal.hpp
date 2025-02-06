@@ -3,6 +3,7 @@
 
 #include "AbstractExpression.hpp"
 #include <cmath>
+#include <string>
 
 enum Operator
 {
@@ -34,6 +35,10 @@ public:
 	 */
 	NonTerminal(AbstractExpression*, AbstractExpression*, Operator);
 
+
+	NonTerminal(std::string&);
+
+
 	/**
 	 * Calculates a value of an expression based on an op attribute (might change the type to float with possible type conversion)
 	 * 
@@ -49,5 +54,8 @@ public:
 	 * @return result of evaluation
 	 */
 	int evaluate(int, int) const;
+
+	void print() override;
+
 };
 #endif
