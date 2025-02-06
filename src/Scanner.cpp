@@ -1,7 +1,5 @@
 #include "Scanner.hpp"
 
-
-
 Scanner::Scanner(std::string& buf): buffer(buf) {};
 
 
@@ -46,5 +44,21 @@ void Scanner::split_tokens()
 			str_tokens.push_back(temp);
 			it++;
 		};
+	};
+};
+
+void Scanner::convert_to_tokens()
+{
+	int temp_num;
+	for(auto i : str_tokens)
+	{
+		if(std::isdigit(i[0]) == 0)
+		{
+			temp_num = std::stoi(i);
+			tokens.push_back(new Terminal(temp_num));
+		}else
+		{
+			tokens.push_back(new NonTerminal(i));
+		}
 	};
 };
