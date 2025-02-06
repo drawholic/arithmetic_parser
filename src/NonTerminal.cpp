@@ -3,6 +3,26 @@
 
 NonTerminal::NonTerminal(AbstractExpression* left = NULL, AbstractExpression* right = NULL, Operator op = ADD){};
 
+NonTerminal::NonTerminal(std::string& _op)
+{
+	switch(_op[0])
+	{
+	case '+':
+		op = ADD;
+	case '-':
+		op = SUB;
+	case '*':
+		op = MUL;
+	case '/':
+		op = DIV;
+	case '^':
+		op = POW;
+	};
+	right = NULL;
+	left = NULL;
+
+};
+
 int NonTerminal::evaluate(int left_res, int right_res) const
 {
 	switch(op)
