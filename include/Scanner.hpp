@@ -20,9 +20,10 @@ class Scanner
 	str_iter get_number_end(str_iter, str_iter);
 	void convert_to_tokens();
 	void print_tokens();
+	void print_str_tokens();
 
 public:
-	Scanner(std::string& buf);
+	Scanner(std::string buf);
 	void remove_whitespaces();
 	void split_tokens();
 };
